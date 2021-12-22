@@ -66,7 +66,9 @@ EXPOSE 50090
 
 CMD service ssh start \
   && start-dfs.sh \
-  && hadoop --daemon start namenode \
-  && hadoop --daemon start datanode \
-  && hadoop-daemon.sh start nfs3 \
+  && hdfs --daemon start namenode \
+  && hdfs --daemon start secondarynamenode \
+  && hdfs --daemon start datanode \
+  && hdfs --daemon start portmap \
+  && hdfs --daemon start nfs3 \
   && bash
